@@ -1,4 +1,5 @@
 import { Box, Flex, Text, Image } from "@chakra-ui/react";
+import { Icon } from "@chakra-ui/icons";
 
 interface IRickandMorty {
   results: {
@@ -30,8 +31,13 @@ export const Hero = ({ results }: IRickandMorty) => {
           w={["15rem"]}
           p={["1rem"]}
         >
-          <Image src={result.image} />
-          <Text color={["white"]} fontWeight={["black"]} textAlign={["center"]}>
+          <Image src={result.image} maxW={["10rem"]} w="100%" h="auto" />
+          <Text
+            color={["white"]}
+            fontWeight={["black"]}
+            textAlign={["center"]}
+            fontSize={[".7rem"]}
+          >
             Name: {result.name}
           </Text>
           <Text color={["white"]} fontWeight={["normal"]}>
@@ -39,6 +45,7 @@ export const Hero = ({ results }: IRickandMorty) => {
           </Text>
           <Text color={["white"]} fontWeight={["bold"]}>
             Status: {result.status}
+            {result.status ? "alive" : "dead"}
           </Text>
           <Text color={["white"]} fontWeight={["thin"]}>
             Specie: {result.species}
