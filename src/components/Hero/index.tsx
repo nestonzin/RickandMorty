@@ -1,5 +1,5 @@
 import { Box, Flex, Text, Image } from "@chakra-ui/react";
-import { Icon } from "@chakra-ui/icons";
+import { Icon, NotAllowedIcon, CheckCircleIcon } from "@chakra-ui/icons";
 
 interface IRickandMorty {
   results: {
@@ -45,7 +45,23 @@ export const Hero = ({ results }: IRickandMorty) => {
           </Text>
           <Text color={["white"]} fontWeight={["bold"]}>
             Status: {result.status}
-            {result.status ? "alive" : "dead"}
+            {result.status === "Alive" ? (
+              <Icon viewBox="0 0 200 200" color="green.500" ml={[".5rem"]}>
+                <path
+                  fill="currentColor"
+                  d="M 100, 100 m -75, 0 a 75,75 0 1,0 150,0 a 75,75 0 1,0 -150,0"
+                />
+              </Icon>
+            ) : result.status === "Dead" ? (
+              <Icon viewBox="0 0 200 200" color="red.500" ml={[".5rem"]}>
+                <path
+                  fill="currentColor"
+                  d="M 100, 100 m -75, 0 a 75,75 0 1,0 150,0 a 75,75 0 1,0 -150,0"
+                />
+              </Icon>
+            ) : (
+              <NotAllowedIcon ml={[".5rem"]} />
+            )}
           </Text>
           <Text color={["white"]} fontWeight={["thin"]}>
             Specie: {result.species}
