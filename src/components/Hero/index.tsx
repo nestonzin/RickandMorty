@@ -1,4 +1,4 @@
-import { Box, Flex, Text } from "@chakra-ui/react";
+import { Box, Flex, Text, Image } from "@chakra-ui/react";
 
 interface IRickandMorty {
   results: {
@@ -11,15 +11,6 @@ interface IRickandMorty {
 }
 
 export const Hero = ({ results }: IRickandMorty) => {
-  const cards = [
-    {
-      name: "Rick",
-      status: "Alive",
-      gender: "Male",
-      specie: "Human",
-    },
-  ];
-
   return (
     <Flex
       alignItems={["center"]}
@@ -27,6 +18,7 @@ export const Hero = ({ results }: IRickandMorty) => {
       p={["2rem"]}
       gap={["1rem"]}
       justifyContent={["center"]}
+      flexWrap={"wrap"}
     >
       {results?.map((result) => (
         <Flex
@@ -36,9 +28,10 @@ export const Hero = ({ results }: IRickandMorty) => {
           gap={["1rem"]}
           bg={["blue.400"]}
           w={["15rem"]}
-          h={["15rem"]}
+          p={["1rem"]}
         >
-          <Text color={["white"]} fontWeight={["black"]}>
+          <Image src={result.image} />
+          <Text color={["white"]} fontWeight={["black"]} textAlign={["center"]}>
             Name: {result.name}
           </Text>
           <Text color={["white"]} fontWeight={["normal"]}>
