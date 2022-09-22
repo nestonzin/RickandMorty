@@ -14,7 +14,6 @@ function App() {
   const results = data.results.slice(0, 8);
 
   console.log(data.results);
-  console.log(results);
 
   return (
     <div>
