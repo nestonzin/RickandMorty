@@ -11,10 +11,9 @@ function App() {
     fetch(api.base).then((res) => res.json())
   );
 
-  const results = data.results.slice(0, 8);
+  const results = data?.results?.slice(0, 8);
 
-  console.log(data.results);
-  console.log(results);
+  // console.log(data.results);
 
   return (
     <div>
