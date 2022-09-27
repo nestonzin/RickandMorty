@@ -1,7 +1,7 @@
 import { Hero } from "./components/Hero";
 import { Navbar } from "./components/Navbar";
 import { useQuery } from "@tanstack/react-query";
-import { Spinner, Box } from "@chakra-ui/react";
+import { Spinner, Box, Flex } from "@chakra-ui/react";
 
 const api = {
   base: "https://rickandmortyapi.com/api/character",
@@ -17,11 +17,11 @@ function App() {
   // console.log(data.results);
 
   return (
-    <Box>
+    <Flex alignItems={"center"} flexDirection={"column"}>
       {isLoading ? <Spinner /> : Hero}
       <Navbar />
       <Hero results={results} />
-    </Box>
+    </Flex>
   );
 }
 
