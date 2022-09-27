@@ -1,6 +1,7 @@
 import { Hero } from "./components/Hero";
 import { Navbar } from "./components/Navbar";
 import { useQuery } from "@tanstack/react-query";
+import { Spinner, Box } from "@chakra-ui/react";
 
 const api = {
   base: "https://rickandmortyapi.com/api/character",
@@ -11,15 +12,16 @@ function App() {
     fetch(api.base).then((res) => res.json())
   );
 
-  const results = data?.results?.slice(0, 8);
+  const results = data?.results?.slice(0, 35);
 
   // console.log(data.results);
 
   return (
-    <div>
+    <Box>
+      {isLoading ? <Spinner /> : Hero}
       <Navbar />
       <Hero results={results} />
-    </div>
+    </Box>
   );
 }
 
